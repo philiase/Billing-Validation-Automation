@@ -1,0 +1,21 @@
+2026-09-03 11:43:09,238 | INFO | Starting billing validation automation.
+2026-09-03 11:43:09,238 | INFO | Run ID: 8b318677-174b-4232-894e-2a84c82aa17d
+2026-09-03 11:43:27,388 | INFO | 
+Billing validation completed.
+
+Run ID: 8b318677-174b-4232-894e-2a84c82aa17d
+Source records processed: 5000
+Valid records: 4338
+Rows with exceptions: 662
+Total exception records: 752
+
+Severity summary:
+- Critical: 80
+- High: 408
+- Medium: 264
+
+Report created:
+reports\billing_exception_report_20260903_114309.xlsx
+
+2026-09-03 11:43:27,388 | INFO | Billing validation automation completed successfully.
+2026-09-03 11:43:27,388 | INFO | AI summary context created: ai_outputs\exception_summary_for_ai_20260903_114309.txt

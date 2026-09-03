@@ -1,0 +1,106 @@
+{
+  "billing_period": "2026-07",
+  "currency": "ZAR",
+  "billing_tolerance": 1.0,
+  "high_difference_threshold": 1000.0,
+  "usage_anomaly_multiplier": 1.5,
+  "required_columns": [
+    "record_id",
+    "billing_period",
+    "customer_id",
+    "customer_name",
+    "service_name",
+    "contract_end",
+    "activation_status",
+    "expected_amount",
+    "billed_amount",
+    "last_month_billed",
+    "invoice_number",
+    "invoice_date",
+    "currency"
+  ],
+  "mandatory_fields": [
+    "record_id",
+    "billing_period",
+    "customer_id",
+    "customer_name",
+    "service_name",
+    "invoice_number",
+    "invoice_date"
+  ],
+  "active_status": "Active",
+  "rules": [
+    {
+      "id": "RULE-01",
+      "name": "Mandatory field control",
+      "severity": "High",
+      "purpose": "Protect the audit trail and make sure every billing line can be traced back to a customer, invoice, service and period."
+    },
+    {
+      "id": "RULE-02",
+      "name": "Expected amount present",
+      "severity": "Critical",
+      "purpose": "The automation cannot prove billing accuracy without a contract or pricing baseline."
+    },
+    {
+      "id": "RULE-03",
+      "name": "Billed amount present",
+      "severity": "Critical",
+      "purpose": "A blank billed amount blocks billing approval because no charge can be validated."
+    },
+    {
+      "id": "RULE-04",
+      "name": "Invalid amount control",
+      "severity": "High",
+      "purpose": "Negative amounts may create incorrect credits or revenue leakage unless approved as a credit-note process."
+    },
+    {
+      "id": "RULE-05",
+      "name": "Billing mismatch tolerance",
+      "severity": "Medium",
+      "purpose": "The core billing accuracy control compares expected contract value against the amount being invoiced."
+    },
+    {
+      "id": "RULE-06",
+      "name": "High billing mismatch",
+      "severity": "High",
+      "purpose": "Large billing differences require escalation before invoices are released to customers."
+    },
+    {
+      "id": "RULE-07",
+      "name": "Duplicate invoice control",
+      "severity": "High",
+      "purpose": "Duplicate invoice records can cause double billing and customer disputes."
+    },
+    {
+      "id": "RULE-08",
+      "name": "Contract end control",
+      "severity": "High",
+      "purpose": "A customer should not be billed after contract expiry unless renewal evidence exists."
+    },
+    {
+      "id": "RULE-09",
+      "name": "Inactive service control",
+      "severity": "High",
+      "purpose": "Cancelled, suspended or pending services should be reviewed before charging."
+    },
+    {
+      "id": "RULE-10",
+      "name": "Currency control",
+      "severity": "Medium",
+      "purpose": "The South African monthly billing run should be in ZAR unless routed through a separate foreign billing process."
+    },
+    {
+      "id": "RULE-11",
+      "name": "Billing period cut-off",
+      "severity": "Medium",
+      "purpose": "Invoice dates outside the billing period can distort revenue reporting and month-end controls."
+    },
+    {
+      "id": "RULE-12",
+      "name": "Usage anomaly review",
+      "severity": "Medium",
+      "purpose": "Large month-on-month spikes may be valid, but they need supporting usage evidence."
+    }
+  ]
+}
