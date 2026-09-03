@@ -1,0 +1,38 @@
+Billing Validation AI Context
+
+Purpose:
+This text file gives an AI activity enough context to summarise the billing validation run for business stakeholders.
+
+Run results:
+- Run ID: 2b3bea4c-5707-49ae-9dcf-566b6650232b
+- Source records processed: 5000
+- Valid records: 4338
+- Rows with exceptions: 662
+- Total exception records: 752
+- Billing accuracy: 0.8676
+- Exception rate: 0.1324
+- Duration seconds: 4.32
+- Excel report path: reports\billing_exception_report_20260903_124222.xlsx
+
+Severity summary:
+- severity: Critical; exception_count: 80
+- severity: High; exception_count: 408
+- severity: Medium; exception_count: 264
+
+Exception type summary:
+- exception_type: Missing billed amount; severity: Critical; exception_count: 50
+- exception_type: Missing expected amount; severity: Critical; exception_count: 30
+- exception_type: Billing mismatch over threshold; severity: High; exception_count: 124
+- exception_type: Duplicate invoice; severity: High; exception_count: 120
+- exception_type: Invalid amount; severity: High; exception_count: 54
+- exception_type: Inactive service billed; severity: High; exception_count: 40
+- exception_type: Contract ended but billed; severity: High; exception_count: 35
+- exception_type: Missing mandatory field; severity: High; exception_count: 35
+- exception_type: Billing mismatch; severity: Medium; exception_count: 181
+- exception_type: Usage anomaly; severity: Medium; exception_count: 36
+- exception_type: Missing mandatory field; severity: Medium; exception_count: 22
+- exception_type: Non-ZAR currency; severity: Medium; exception_count: 15
+- exception_type: Invoice outside billing period; severity: Medium; exception_count: 10
+
+Suggested AI instruction:
+Summarise this billing validation run in plain business language. Mention the overall result, the number of records processed, the volume and severity of exceptions, the main exception categories, and the recommended next action for Billing and Finance.
