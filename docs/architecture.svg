@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Billing validation automation architecture</title>
+  <desc id="desc">A layered diagram showing source billing data and validation rules flowing into a Python automation engine, then producing Excel reports, logs, SQLite audit records and AI-ready summaries, with optional RPA orchestration around the process.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#eef5f8"/>
+    </linearGradient>
+    <linearGradient id="engine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#164e63"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1d4ed8"/>
+    </marker>
+    <style>
+      .title { font: 700 34px "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 17px "Segoe UI", Arial, sans-serif; fill: #475569; }
+      .layer { font: 700 13px "Segoe UI", Arial, sans-serif; fill: #1e293b; letter-spacing: .09em; }
+      .box-title { font: 700 18px "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .box-text { font: 400 13px "Segoe UI", Arial, sans-serif; fill: #475569; }
+      .small { font: 400 12px "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .white-title { font: 700 19px "Segoe UI", Arial, sans-serif; fill: #ffffff; }
+      .white-text { font: 400 13px "Segoe UI", Arial, sans-serif; fill: #dbeafe; }
+      .pill-text { font: 700 12px "Segoe UI", Arial, sans-serif; fill: #075985; letter-spacing: .06em; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.4; rx: 18; filter: url(#shadow); }
+      .soft { fill: #eff6ff; stroke: #bfdbfe; stroke-width: 1.2; rx: 16; }
+      .output { fill: #f0fdf4; stroke: #86efac; stroke-width: 1.2; rx: 16; }
+      .warn { fill: #fff7ed; stroke: #fdba74; stroke-width: 1.2; rx: 16; }
+      .line { fill: none; stroke: #334155; stroke-width: 2.2; marker-end: url(#arrow); }
+      .dash { fill: none; stroke: #64748b; stroke-width: 2; stroke-dasharray: 7 7; marker-end: url(#arrow); }
+      .stage { fill: #e0f2fe; stroke: #7dd3fc; stroke-width: 1.2; rx: 14; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="760" fill="url(#bg)"/>
+  <text x="70" y="64" class="title">Billing Validation Automation Architecture</text>
+  <text x="70" y="94" class="subtitle">Rule-based billing controls, auditable outputs, and optional RPA or AI orchestration around a Python validation engine.</text>
+  <rect x="64" y="132" width="1152" height="560" rx="30" fill="#ffffff" opacity="0.72" stroke="#dbe3ef"/>
+
+  <text x="94" y="169" class="layer">INPUTS</text>
+  <text x="459" y="169" class="layer">PYTHON VALIDATION ENGINE</text>
+  <text x="862" y="169" class="layer">BUSINESS OUTPUTS</text>
+
+  <rect x="92" y="198" width="250" height="116" class="card"/>
+  <text x="124" y="232" class="box-title">Sample billing data</text>
+  <text x="124" y="258" class="box-text">input/sample_billing_data.xlsx</text>
+  <text x="124" y="282" class="small">5,000 synthetic billing rows</text>
+
+  <rect x="92" y="356" width="250" height="116" class="card"/>
+  <text x="124" y="390" class="box-title">Validation rules</text>
+  <text x="124" y="416" class="box-text">config/validation_rules.json</text>
+  <text x="124" y="440" class="small">thresholds, fields, severity logic</text>
+
+  <rect x="428" y="214" width="312" height="268" rx="24" fill="url(#engine)" filter="url(#shadow)"/>
+  <text x="462" y="254" class="white-title">src/main.py</text>
+  <text x="462" y="280" class="white-text">orchestrates the full automation run</text>
+  <rect x="462" y="312" width="244" height="38" class="stage"/>
+  <text x="482" y="337" class="box-text">1. Load workbook and config</text>
+  <rect x="462" y="360" width="244" height="38" class="stage"/>
+  <text x="482" y="385" class="box-text">2. Clean and standardise data</text>
+  <rect x="462" y="408" width="244" height="38" class="stage"/>
+  <text x="482" y="433" class="box-text">3. Apply billing controls</text>
+  <rect x="462" y="456" width="244" height="38" class="stage"/>
+  <text x="482" y="481" class="box-text">4. Split valid rows and exceptions</text>
+
+  <rect x="808" y="188" width="214" height="104" class="output"/>
+  <text x="836" y="222" class="box-title">Excel report</text>
+  <text x="836" y="248" class="box-text">reports/*.xlsx</text>
+  <text x="836" y="270" class="small">summary, exceptions, valid rows</text>
+  <rect x="1038" y="188" width="132" height="104" class="soft"/>
+  <text x="1064" y="222" class="box-title">Logs</text>
+  <text x="1064" y="248" class="box-text">logs/*.log</text>
+  <text x="1064" y="270" class="small">support trail</text>
+  <rect x="808" y="336" width="214" height="104" class="warn"/>
+  <text x="836" y="370" class="box-title">SQLite audit DB</text>
+  <text x="836" y="396" class="box-text">database/*.db</text>
+  <text x="836" y="418" class="small">run status and metrics</text>
+  <rect x="1038" y="336" width="132" height="104" class="output"/>
+  <text x="1064" y="370" class="box-title">AI text</text>
+  <text x="1064" y="396" class="box-text">ai_outputs/</text>
+  <text x="1064" y="418" class="small">plain summary</text>
+
+  <path d="M342 256 C380 256 389 300 424 318" class="line"/>
+  <path d="M342 414 C382 414 388 390 424 378" class="line"/>
+  <path d="M740 312 C770 296 778 252 804 240" class="line"/>
+  <path d="M740 348 C792 348 794 240 1034 240" class="line"/>
+  <path d="M740 402 C770 404 778 388 804 388" class="line"/>
+  <path d="M740 438 C790 444 808 388 1034 388" class="line"/>
+
+  <rect x="110" y="536" width="330" height="96" class="soft"/>
+  <text x="140" y="570" class="box-title">Optional RPA layer</text>
+  <text x="140" y="596" class="box-text">Checks files, runs command, verifies output,</text>
+  <text x="140" y="616" class="box-text">moves files, sends notifications.</text>
+  <rect x="500" y="536" width="288" height="96" class="output"/>
+  <text x="530" y="570" class="box-title">Human review</text>
+  <text x="530" y="596" class="box-text">Billing, finance, and operations teams</text>
+  <text x="530" y="616" class="box-text">review exceptions and remediation.</text>
+  <rect x="848" y="536" width="292" height="96" class="warn"/>
+  <text x="878" y="570" class="box-title">Governance loop</text>
+  <text x="878" y="596" class="box-text">Tune rules, monitor trends, and reduce</text>
+  <text x="878" y="616" class="box-text">repeat exceptions at source.</text>
+  <path d="M275 536 C303 510 360 512 428 462" class="dash"/>
+  <path d="M915 292 C904 468 748 512 680 536" class="dash"/>
+  <path d="M994 536 C1044 502 1050 478 1053 442" class="dash"/>
+
+  <rect x="92" y="650" width="1088" height="34" rx="17" fill="#e0f2fe" stroke="#bae6fd"/>
+  <text x="118" y="672" class="pill-text">DESIGN PRINCIPLE</text>
+  <text x="282" y="672" class="box-text">Rules validate billing accuracy. RPA orchestrates the workflow. AI explains results in business language. Audit evidence keeps the process supportable.</text>
+</svg>

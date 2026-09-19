@@ -33,32 +33,11 @@ It produces:
 - Records every run in SQLite for auditability.
 - Creates a text summary that can be passed into an AI or RPA tool.
 
-## Project Workflow
+## Architecture
 
-```text
-Sample billing workbook
-        |
-        v
-Load data from Excel
-        |
-        v
-Clean and standardise fields
-        |
-        v
-Apply validation rules
-        |
-        v
-Split valid records and exceptions
-        |
-        v
-Create Excel exception report
-        |
-        v
-Write audit log and SQLite run record
-        |
-        v
-Create AI-ready summary text
-```
+![Billing validation automation architecture](docs/architecture.svg)
+
+For a more detailed breakdown of the processing layers, outputs, RPA touchpoints, and governance loop, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Folder Structure
 
